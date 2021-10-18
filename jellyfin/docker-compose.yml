@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: jellyfin/jellyfin:latest
+    ports:
+      - 8096:8096
+    volumes:
+      - D:\Jellyfin_Config:/config
+      - D:\Jellyfin_Cache:/cache
+      - D:\Media:/media
+    user: 1000:1000
+    restart: unless-stopped
