@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    reverse_proxy:
+        container_name: reverse_proxy
+        image: nginx:latest
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - E:\nginx\config\:/etc/nginx/conf.d/
+            - E:\nginx\certs\:/etc/ssl/private/
+        restart: unless-stopped
