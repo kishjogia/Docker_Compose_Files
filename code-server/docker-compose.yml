@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  vs_code-server:
+    container_name: vs_code-server
+    image: codercom/code-server:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - E:\code-server_config:/home/coder/.config
+      - C:\Users\kishj\OneDrive\\development:/home/coder/development
+    user: 1000:1000
+    restart: unless-stopped
