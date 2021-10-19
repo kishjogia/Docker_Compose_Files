@@ -3,11 +3,14 @@ version: '3'
 services:
   vs_code-server:
     container_name: vs_code-server
-    image: codercom/code-server:latest
+    image: linuxserver/code-server:latest
     ports:
-      - 8080:8080
+      - 8080:8443
     volumes:
-      - E:\code-server_config:/home/coder/.config
-      - C:\Users\kishj\OneDrive\\development:/home/coder/development
-    user: 1000:1000
+      - E:\code-server_config:/config
+      - C:\Users\kishj\OneDrive\development:/home/development
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
     restart: unless-stopped
